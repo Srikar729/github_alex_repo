@@ -1,0 +1,11 @@
+string COMMAND_DOOR_OPEN=door_open
+string COMMAND_DOOR_CLOSE=door_close
+string COMMAND_MEASURE=measure
+
+string job_id
+string command
+uint8 weight_mode
+---
+bool success
+string reason
+alex_interfaces/Weight result

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "version": 1.0,
+        "author": "Nikhil",
+        "automationTarget": "ALEX",
+        "objectReferences": {
+            "Bottle 250ml 1": "container-0",
+            "Beaker 250ml 1": "container-2",
+            "Volumetric Flask 250ml 1": "container-3",
+            "Location 1": "location-0",
+            "Location 2": "location-1",
+            "Location 3": "location-2",
+            "Location 4": "location-3",
+            "Active Bottle Point": "location-4",
+            "Active Flask Point": "location-5",
+            "Storage Bottle Point": "location-6",
+            "Storage Flask Point": "location-7"
+        }
+    },
+    "actions": [
+        {
+            "action": "move",
+            "target": "Volumetric Flask 250ml 1",
+            "parameter": "Active Flask Point"
+        },
+        {
+            "action": "stir",
+            "target": "Volumetric Flask 250ml 1",
+            "parameter": "Active Bottle Point"
+        },
+        {
+            "action": "add",
+            "target": "Volumetric Flask 250ml 1",
+            "parameter": "Beaker 250ml 1"
+        },
+        {
+            "action": "move",
+            "target": "Volumetric Flask 250ml 1",
+            "parameter": "Storage Flask Point"
+        }
+    ]
+}

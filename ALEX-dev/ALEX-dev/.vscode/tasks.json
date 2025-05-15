@@ -1,0 +1,72 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "colcon: build pkg (debug)",
+            "type": "shell",
+            "command": [
+                "cd ~/ros2_ws/;",
+                "source /opt/ros/humble/setup.bash;",
+                "colcon build",
+                "--symlink-install",
+                "--packages-select-regex ${input:select_packages}",
+                "--event-handlers console_cohesion+",
+                "--cmake-args -DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "colcon: build (debug)",
+            "type": "shell",
+            "command": [
+                "cd ~/ros2_ws/;",
+                "source /opt/ros/humble/setup.bash;",
+                "colcon build",
+                "--symlink-install",
+                "--event-handlers console_cohesion+",
+                "--cmake-args -DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "colcon: clean",
+            "type": "shell",
+            "command": [
+                "cd ~/ros2_ws/;",
+                "rm -rf build/ install/ log/;"
+            ],
+        },
+        {
+            "label": "colcon: test",
+            "type": "shell",
+            "command": [
+                "cd ~/ros2_ws/;",
+                "source /opt/ros/humble/setup.bash;",
+                "source install/setup.bash;",
+                "colcon test",
+                "--packages-select <package-name>",
+                "--event-handlers console_direct+;"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "select_packages",
+            "description": "What packages do you want to build",
+            "options": [
+                "alex_*",
+                "dsr_*",
+            ],
+            "default": "alex_*",
+        }
+    ]
+}

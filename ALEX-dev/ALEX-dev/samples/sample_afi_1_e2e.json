@@ -1,0 +1,63 @@
+{
+    "metadata": {
+        "version": 1.0,
+        "author": "Nikhil",
+        "automationTarget": "ALEX",
+        "objectReferences": {
+            "Flask 200ml 1": "container-0",
+            "Flask 200ml 2": "container-1",
+            "Bottle 1l": "container-2",
+            "Water": "liquid-0",
+            "Sodium Hydroxide": "liquid-1",
+            "Sulfuric Acid": "liquid-2",
+            "Salt": "solid-0",
+            "Magnesium Carbonate": "solid-1"
+        }
+    },
+    "actions": [
+        {
+            "action": "add",
+            "target": "Flask 200ml 1",
+            "parameter": "Water",
+            "quantity": {
+                "value": 100,
+                "unit": "ml"
+            }
+        },
+        {
+            "action": "add",
+            "target": "Flask 200ml 1",
+            "parameter": "Salt",
+            "quantity": {
+                "value": 5,
+                "unit": "g"
+            },
+            "option": {
+                "mix": true
+            }
+        },
+        {
+            "action": "add",
+            "target": "Flask 200ml 2",
+            "parameter": "Sodium Hydroxide",
+            "quantity": {
+                "value": 50,
+                "unit": "ml"
+            }
+        },
+        {
+            "action": "add",
+            "target": "Flask 200ml 2",
+            "parameter": "Magnesium Carbonate",
+            "quantity": {
+                "value": 15,
+                "unit": "g"
+            }
+        },
+        {
+            "action": "add",
+            "target": "Flask 200ml 1",
+            "parameter": "Flask 200ml 2"
+        }
+    ]
+}

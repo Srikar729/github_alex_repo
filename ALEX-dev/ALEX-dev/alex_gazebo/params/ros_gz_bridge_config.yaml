@@ -1,0 +1,25 @@
+# Setting up rgb camera
+- ros_topic_name: "color/image_raw"
+  gz_topic_name: "camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS  
+
+# Default "BIDIRECTIONAL" - Bridge both directions
+# "GZ_TO_ROS" - Bridge Gz topic to ROS
+# "ROS_TO_GZ" - Bridge ROS topic to Gz
+
+
+# Setting up depth camera
+- ros_topic_name: "aligned_depth_to_color/image_raw"
+  gz_topic_name: "depth_camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS 
+  
+# Setting up depth camera
+- ros_topic_name: "color/camera_info"
+  gz_topic_name: "camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS 

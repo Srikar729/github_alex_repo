@@ -1,0 +1,38 @@
+{
+    "metadata": {
+        "version": 1.0,
+        "author": "Nikhil",
+        "automationTarget": "ALEX",
+        "objectReferences": {
+            "Bottle 250ml 1": "container-0",
+            "Bottle 250ml 2": "container-1",
+            "Flask 200ml": "container-2",
+            "Location 1": "location-0",
+            "Location 2": "location-1",
+            "Location 3": "location-2",
+            "Location 4": "location-3"
+        }
+    },
+    "actions": [
+        {
+            "action": "move",
+            "target": "Bottle 250ml 1",
+            "parameter": "Location 2"
+        },
+        {
+            "action": "add",
+            "target": "Bottle 250ml 2",
+            "parameter": "Flask 200ml"
+        },
+        {
+            "action": "add",
+            "target": "Bottle 250ml 1",
+            "parameter": "Flask 200ml"
+        },
+        {
+            "action": "move",
+            "target": "Bottle 250ml 1",
+            "parameter": "Location 1"
+        }
+    ]
+}

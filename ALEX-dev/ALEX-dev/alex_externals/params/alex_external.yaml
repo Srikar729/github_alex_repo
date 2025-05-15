@@ -1,0 +1,12 @@
+/doosan_arm_control:
+  ros__parameters:
+    client_max_attempt_count: 5
+    gripper_type: "AG-95"
+    gripper_delay_time: 3
+    doosan_arm_delay: 0.2
+    default_velocity: 100.0
+    default_accleration: 60.0
+    max_velocity: 360.0
+    max_accleration: 160.0
+    robot_pack_position: [-161.53, 0.01, 134.61, 0.00, 22.43, 0.00]
+    robot_unpack_position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]

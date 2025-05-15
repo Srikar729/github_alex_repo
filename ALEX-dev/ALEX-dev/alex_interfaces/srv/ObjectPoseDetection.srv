@@ -1,0 +1,5 @@
+string object_id
+uint8 aruco_id
+---
+bool success
+geometry_msgs/Point object_position

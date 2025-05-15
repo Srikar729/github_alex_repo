@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='conical_flask_model'>
+    <pose>0 0.2 0.75 0 0 0</pose> <!-- Rotated 90 degrees -->
+    <!-- Beaker Definition -->
+    <link name='link_2'>
+      <inertial>
+        <inertia>
+          <ixx>2113452.814813</ixx>
+          <ixy>-0.408193</ixy>
+          <ixz>-0.174324</ixz>
+          <iyx>-0.408193</iyx>
+          <iyy>663146.886889</iyy>
+          <iyz>29099.165317</iyz>
+          <izx>-0.174324</izx>
+          <izy>29099.165317</izy>
+          <izz>2099031.22</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://conical_flask/meshes/ErlenmeyerSolid.stl</uri>
+            <scale>0.01 0.01 0.01</scale> <!-- Converted to millimetres -->
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>model://conical_flask/meshes/ErlenmeyerSolid.stl</uri>
+            <scale>0.01 0.01 0.01</scale> <!-- Converted to millimetres -->
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

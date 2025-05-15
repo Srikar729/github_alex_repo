@@ -1,0 +1,31 @@
+string COMMAND_DISPENSE="D"
+string COMMAND_DISPENSE_CONSTANT="DC"
+string COMMAND_PAUSE="P"
+string COMMAND_STOP="X"
+string COMMAND_INVERT="Invert"
+string COMMAND_TOTAL_VOLUME="TV"
+string COMMAND_ABSOLUTE_TOTAL_VOLUME="ATV"
+string COMMAND_CALIBRATE="Cal"
+string COMMAND_POWER_VALUE="PV"
+string COMMAND_DEVICE_INFORMATION="i"
+string COMMAND_STATUS="Status"
+string COMMAND_SLEEP="Sleep"
+string COMMAND_FIND="Find"
+
+string job_id
+string command
+float32 value
+
+string OPTIONAL_CHECK="?"
+string OPTIONAL_CLEAR="clear"
+string optional
+---
+# STATUS
+uint16 COMMAND_ACKNOWLEDGED=10011
+uint16 DONE=10012
+uint16 DISPENSE_ERROR=10015
+uint16 STOPPED=10014
+uint16 COMMAND_SEND_TIMEOUT=10013
+
+bool success
+alex_interfaces/LiquidDosingStatus status

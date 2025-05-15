@@ -1,0 +1,2 @@
+string reference
+string object

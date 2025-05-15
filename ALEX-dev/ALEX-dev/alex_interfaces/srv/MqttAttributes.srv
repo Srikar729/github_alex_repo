@@ -1,0 +1,8 @@
+string DEVICE_ALL=""
+
+string device_id
+string attribute_key
+---
+bool success
+string reason
+string attributes 

@@ -1,0 +1,14 @@
+uint8 PICK=1
+uint8 DROP=0
+
+# Picking Groups
+uint8 GROUP1=1
+uint8 GROUP2=2
+uint8 GROUP3=3
+uint8 GROUP4=4
+
+uint8 command 255
+uint8 picking_group 4
+---
+bool success False
+string reason

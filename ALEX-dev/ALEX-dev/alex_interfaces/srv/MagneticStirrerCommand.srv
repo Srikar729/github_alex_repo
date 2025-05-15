@@ -1,0 +1,7 @@
+string job_id
+uint16 rpm
+alex_interfaces/QuantityValue timer
+alex_interfaces/QuantityValue temperature
+---
+bool success
+alex_interfaces/MagneticStirrer status

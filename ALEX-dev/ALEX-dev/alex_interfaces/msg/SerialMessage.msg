@@ -1,0 +1,9 @@
+uint8 DISCONNECTED=0
+uint8 CONNECTED=1
+uint8 DEACTIVATING=2
+uint8 CLEANUP=3
+uint8 ACTIVATING=4
+uint8 CONFIGURING=5
+
+uint8 state
+string data

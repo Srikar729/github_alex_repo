@@ -1,0 +1,8 @@
+[submodule "alex_externals/arduino_embedded/sonicator/libraries/Adafruit_MAX31865"]
+	path = alex_externals/arduino_embedded/sonicator/libraries/Adafruit_MAX31865
+	url = https://github.com/adafruit/Adafruit_MAX31865.git
+	branch = master
+[submodule "alex_externals/arduino_embedded/sonicator/libraries/Adafruit_BusIO"]
+	path = alex_externals/arduino_embedded/sonicator/libraries/Adafruit_BusIO
+	url = https://github.com/adafruit/Adafruit_BusIO.git
+	branch = master

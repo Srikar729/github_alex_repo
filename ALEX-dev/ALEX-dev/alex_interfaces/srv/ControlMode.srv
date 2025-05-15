@@ -1,0 +1,16 @@
+string ADMIN_ORIGIN_URP=urp
+
+string ORIGIN_URP=urp
+string ORIGIN_AFI=afi
+string ORIGIN_RAVEN=raven
+
+string MODE_NONE=
+string MODE_RAVEN=raven
+string MODE_AFI=afi
+
+string origin
+string mode
+---
+bool success
+string reason
+string current_mode

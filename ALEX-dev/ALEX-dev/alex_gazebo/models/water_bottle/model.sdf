@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='water_bottle'>
+  <pose>0 0 0.17 0 0 0</pose> <!-- Adjust pose -->
+
+    <!-- Beaker Definition -->
+    <link name='link_2'>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>5000</ixx> <!-- Increased inertia to resist oscillation -->
+          <ixy>0.00</ixy>
+          <ixz>0.00</ixz>
+          <iyy>5000</iyy> <!-- Increased inertia to resist oscillation -->
+          <iyz>0.00</iyz>
+          <izx>0.00</izx>
+          <izy>0.00</izy>
+          <izz>5000</izz> <!-- Increased inertia to resist oscillation -->
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://water_bottle/meshes/waterbottle.stl</uri>
+            <scale>0.0008 0.0008 0.001</scale> <!-- Converted to millimetres -->
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>model://water_bottle/meshes/waterbottle.stl</uri>
+            <scale>0.0008 0.0008 0.001</scale> <!-- Converted to millimetres -->
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

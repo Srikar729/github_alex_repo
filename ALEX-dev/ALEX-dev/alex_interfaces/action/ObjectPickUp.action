@@ -1,0 +1,10 @@
+geometry_msgs/Point detection_position
+string object_id
+uint8 aruco_id
+bool should_pick_up true
+uint8 pick_up_height 50
+---
+bool success False
+string reason
+---
+string status

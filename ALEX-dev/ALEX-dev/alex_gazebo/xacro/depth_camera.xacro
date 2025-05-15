@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot name="realsense2_camera" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="use_nominal_extrinsics" default="false" />
+  <xacro:arg name="add_plug" default="true" />
+  <xacro:arg name="use_mesh" default="true" />
+  <xacro:include filename="$(find realsense2_description)/urdf/_d415.urdf.xacro" />
+
+  <!-- Camera Link -->
+  <link name="depth_camera_link"></link>
+
+  <xacro:sensor_d415 parent="depth_camera_link" use_nominal_extrinsics="$(arg use_nominal_extrinsics)" add_plug="$(arg add_plug)" use_mesh="$(arg use_mesh)">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:sensor_d415>
+
+  <!-- Fixed joint to attach the camera to the base -->
+  <joint name="depth_camera_joint" type="fixed">
+      <parent link="camera_base_link" />
+      <child link="depth_camera_link" />
+      <origin xyz="0 0 0.01"/>
+  </joint>
+
+  <link name="depth_camera_optical_link"></link>
+
+  <joint name="depth_camera_optical_joint" type="fixed">
+      <parent link="depth_camera_link" />
+      <child link="depth_camera_optical_link" />
+      <origin xyz="0 0 0.01" rpy="${-pi/2} 0 ${-pi/2}"/>
+  </joint>
+
+  <!-- Gazebo plugin to simulate the camera -->
+    <gazebo reference="depth_camera_link">
+        <sensor type="depth_camera" name="depth_camera">
+            <topic>depth_camera</topic>
+            <update_rate>10.0</update_rate>
+            <always_on>true</always_on>
+            <ignition_frame_id>depth_camera_optical_link</ignition_frame_id>
+            <horizontal_fov>1.05</horizontal_fov>
+            <image>
+                <width>256</width>
+                <height>256</height>
+                <format>R_FLOAT32</format>
+            </image>
+            <clip>
+                <near>0.02</near>
+                <far>10.0</far>
+            </clip>
+            <plugin
+                filename="ignition-gazebo-sensors-system"
+                name="gz::sim::systems::Sensors">
+                <render_engine>ogre2</render_engine>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+</robot>

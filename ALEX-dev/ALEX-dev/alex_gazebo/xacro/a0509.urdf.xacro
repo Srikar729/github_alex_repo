@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="a0509_cobot" >
+
+  <xacro:arg name="color"   default="white"/>
+  <xacro:arg name="gripper" default="none"/>
+  <xacro:arg name="namespace" default=""/>
+  <xacro:arg name="use_gazebo" default="false"/>
+  
+  <xacro:property name="cr" value="$(arg color)"/>
+  <xacro:property name="gr" value="$(arg gripper)"/>
+  <xacro:property name="gz" value="$(arg use_gazebo)"/>
+  
+  <xacro:include filename="$(find alex_gazebo)/xacro/macro.a0509.blue.xacro" />
+  <xacro:a0509 namespace="$(arg namespace)"/>
+
+  <link name="world" />
+  <!-- World fixed joint-->
+  <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  
+  <!-- Add a camera base link -->
+  <link name="camera_base_link"></link>
+
+  <!-- Fixing joint cconnecting camera_link to the joint_6 of the cobot -->
+  <joint name="camera_base_joint" type="fixed">
+      <parent link="link_6" />
+      <child link="camera_base_link" />
+      <origin xyz="-0.05 0 0" rpy="0.0 ${-pi/2} 0.0" />
+  </joint>
+  <xacro:include filename="intel_depth_camera.xacro" />
+
+  <link name="base">
+    <visual>
+      <geometry>
+        <box size="0.035 0.093 0.1295"/>
+      </geometry>
+      <origin xyz="0 0 ${0.1295/2}"/>
+      <material name="grey">
+        <color rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${0.1295/2}"/>
+      <geometry>
+        <box size="0.035 0.093 0.1295"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="finger_right">
+    <visual>
+      <geometry>
+        <box size="0.01 0.02 0.066339542"/>
+      </geometry>
+      <origin xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.02 0.066339542"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="finger_left">
+    <visual>
+      <geometry>
+        <box size="0.01 0.02 0.066339542"/>
+      </geometry>
+      <origin xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.02 0.066339542"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <joint name="world_to_base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="link_6"/>
+    <child link="base"/>
+  </joint>
+  <joint name="right_finger_joint" type="prismatic">
+    <axis xyz="0 1 0"/>
+    <origin  xyz="0.0 -0.0475 0.165" rpy="0.0 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="finger_right"/>
+    <limit effort="30.0" lower="0" upper="0.0375" velocity="10"/>
+  </joint>
+  <joint name="left_finger_joint" type="prismatic">
+    <mimic joint="right_finger_joint"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0.0 0.0475 0.165" rpy="0.0 0.0 3.1415926535"/>
+    <parent link="base"/>
+    <child link="finger_left"/>
+    <limit effort="30.0" lower="0" upper="0.0375" velocity="10"/>
+  </joint>
+
+  <xacro:if value="${gz}">
+    <xacro:include filename="$(find alex_gazebo)/ros2_control/a0509.gz_ros2_control.xacro" />
+    <xacro:a0509_gz_ros2_control namespace="$(arg namespace)"/>
+  </xacro:if>
+  <xacro:unless value="${gz}">
+    <xacro:include filename="$(find alex_gazebo)/ros2_control/a0509.ros2_control.xacro" />
+    <xacro:a0509_ros2_control name="a0509"/>
+  </xacro:unless>
+  
+</robot>

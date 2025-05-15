@@ -1,0 +1,5 @@
+repositories:
+  doosan-robot2:
+    type: git
+    url: https://github.com/doosan-robotics/doosan-robot2.git
+    branch: humble 

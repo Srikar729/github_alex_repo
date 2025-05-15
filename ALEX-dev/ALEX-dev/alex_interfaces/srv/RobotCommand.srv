@@ -1,0 +1,16 @@
+string MOVE=move
+string TURN=turn
+string RELATIVE_MOVEMENT=relative_movement
+string STIR=stir
+string PACK=pack
+string UNPACK=unpack
+
+string command
+geometry_msgs/Point position
+# Turn angle
+geometry_msgs/Vector3 angle
+# Minor movement
+geometry_msgs/Vector3 difference
+---
+bool success False
+string reason

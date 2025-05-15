@@ -1,0 +1,13 @@
+string DIRECTION_FORWARD="+"
+string DIRECTION_STOP="="
+string DIRECTION_BACKWARD="-"
+
+string direction
+---
+string STATUS_ERROR="error"
+string STATUS_CANCELLING="cancelling"
+string STATUS_CANCELLED="cancelled"
+string STATUS_COMPLETED="completed"
+
+string status error
+string reason

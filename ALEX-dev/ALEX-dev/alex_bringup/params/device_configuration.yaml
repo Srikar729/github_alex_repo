@@ -1,0 +1,13 @@
+devices:
+  magnetic_stirrer:
+    device_type: magnetic-stirrer
+    external_nodes:
+      - node_name: joanlab_magnetic_stirrer
+        prefix: ""
+        parameters:
+          joanlab_serial_timeout: 10
+      - node_name: serial_interface_lifecycle
+        prefix: ""
+        parameters:
+          serial_number: "0001"
+          baud_rate: 115200

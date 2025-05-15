@@ -1,0 +1,9 @@
+string CONTROL_MODE_HEAT="heat"
+string CONTROL_MODE_SONICATE="sonicate"
+
+string job_id
+alex_interfaces/QuantityValue timer
+alex_interfaces/QuantityValue temperature
+---
+bool success
+alex_interfaces/Sonicator status

@@ -1,0 +1,9 @@
+alex_interfaces/ActionFileInterface afi
+string job_info
+uint8 start_index 0
+---
+bool success False
+string reason
+alex_interfaces/CobotUpdates status
+---
+alex_interfaces/CobotUpdates status

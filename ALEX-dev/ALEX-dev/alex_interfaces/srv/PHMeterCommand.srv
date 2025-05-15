@@ -1,0 +1,17 @@
+string COMMAND_READ="R"
+string COMMAND_CONTINOUS="C"
+string COMMAND_CALIBRATE="Cal"
+string COMMAND_SLOPE="Slope"
+
+string COMMAND_CUSTOM_MEASURE="measure"
+string COMMAND_CUSTOM_STOP="stop"
+
+string job_id
+string command
+float32 value
+
+string OPTIONAL_CHECK="?"
+string optional # more can be added
+---
+bool success
+alex_interfaces/PHMeterStatus status

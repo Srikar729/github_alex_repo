@@ -1,0 +1,17 @@
+string DIRECTION_POSITIVE="+"
+string DIRECTION_NEGATIVE="-"
+
+string UNIT_MILLIMETER="mm"
+string UNIT_CENTIMETER="cm"
+string UNIT_METER="m"
+
+alex_interfaces/QuantityValue distance
+---
+string STATUS_ERROR="error"
+string STATUS_CANCELLING="cancelling"
+string STATUS_CANCELLED="cancelled"
+string STATUS_COMPLETED="completed"
+
+string status error
+alex_interfaces/QuantityValue current_position
+string reason

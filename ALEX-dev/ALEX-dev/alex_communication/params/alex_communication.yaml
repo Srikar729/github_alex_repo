@@ -1,0 +1,34 @@
+/**:
+    ros__parameters:
+        access_token: oj4cUTJ3KK49yywwKrYa
+        host: https://dev.api.neuralfoundry.co.uk/api/
+
+/mqtt_client_node:
+    ros__parameters:
+        host: 50.85.192.198
+        port: 1883
+        api_host: https://thingsboard.neuralfoundry.co.uk/
+        devices_list:
+            - robot-9a6367ad
+            - liquid-dispenser-c9f82d40
+            - liquid-dispenser-48f6b503
+            - liquid-dispenser-157091bf
+            - pH-meter-d0378087
+            - weight-balance-795f325c
+            # - magnetic-stirrer-667cdc5a
+            # - centrifuge-1
+            # - sonicator-b337baa6
+        robot-9a6367ad: uCUKvC0X2IMCndvXXb3U
+        liquid-dispenser-c9f82d40: QOEl9WI4LaXqQ1oTRK43
+        liquid-dispenser-48f6b503: MUsIqfMKm5dYK405toph
+        liquid-dispenser-157091bf: ozpz8RPUqS5yi1NfPWsq
+        pH-meter-d0378087: 26KIpmvRy4FF4rY81TQv
+        weight-balance-795f325c: JkkHIQ9fkgBkSIpUGTX4
+          # magnetic-stirrer-667cdc5a: h4qj7pEfUa0F5ZbYSep7
+          # centrifuge-1: kz5iAtXyRPTNqWD0oDp1
+          # sonicator-b337baa6: 9V52qw5KjCvbwBAtOhmn
+
+/webrtc_client:
+    ros__parameters:
+        source_type: ros
+        ros_camera_topics: [/zed/zed_node/left/image_rect_color, /zed/zed_node/right/image_rect_color]
