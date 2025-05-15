@@ -1,0 +1,54 @@
+name: Tag On PR Merge
+permissions:
+  contents: write
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  inspect_and_tag:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Fetch all tags
+        run: git fetch --tags
+      
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          tag=$(git tag --list 'alpha.*' | sort -V | tail -n1)
+          if [ -z "$tag" ]; then
+            tag="alpha.0"
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "Found latest tag: $tag"
+      
+      - name: Parse version number
+        id: parse_tag
+        run: |
+          tag="${{ steps.get_tag.outputs.tag }}"
+          number="${tag#alpha.}"
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+          echo "Parsed number: $number"
+      
+      - name: Create new tag
+        id: new_tag
+        run: |
+          new_number=$(( ${{ steps.parse_tag.outputs.number }} + 1 ))
+          new_tag="alpha.$new_number"
+          echo "new_tag=$new_tag" >> "$GITHUB_OUTPUT"
+          echo "New tag will be: $new_tag"
+      
+      - name: Tag and push
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git tag -a "${{ steps.new_tag.outputs.new_tag }}" -m "Auto-tag from PR #${{ github.event.pull_request.number }} and Head branch: ${{ github.event.pull_request.head.ref }} merge"
+          git push origin "${{ steps.new_tag.outputs.new_tag }}"
+          echo "Successfully created and pushed tag ${{ steps.new_tag.outputs.new_tag }}"
